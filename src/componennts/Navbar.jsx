@@ -3,7 +3,7 @@ import Logo from '/images/logo.png'
 
 const Navbar = () => {
   return (
-    <div className="fixed bg-transparent w-full h-12.5 z-60 flex flex-row justify-between items-center">
+    <section className="fixed bg-transparent w-full h-12.5 z-60 flex flex-row justify-between items-center">
       <Link to='/' >
         <img 
           src={Logo}
@@ -28,7 +28,7 @@ const Navbar = () => {
           cart
         </Link>
       </div>
-    </div>
+    </section>
   )
 }
 

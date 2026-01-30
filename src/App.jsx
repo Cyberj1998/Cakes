@@ -32,18 +32,18 @@ function App() {
       <Routes>
         <Route path="/" element={
           <>
-          <div id='smooth-wrapper'>
-            <div id='smooth-content'>
-              {/*<Navbar/>
-              <Hero /> 
-              <Bento />
-              <Marquee />*/}
-              <Selector />
-              <Marquee />
-              <LateralScroll />
-              <Extension />
+            <div id='smooth-wrapper'>
+              <div id='smooth-content'>
+                <Navbar/>
+                <Hero /> 
+                <Bento />
+                <Marquee />
+                <Selector />
+                <Marquee />
+                <LateralScroll />
+                <Extension />
+              </div>
             </div>
-          </div>
           </>
           } 
         />

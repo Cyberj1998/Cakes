@@ -10,7 +10,7 @@ const BentoCard = ({ card }) => {
         alt="bento card"
         className="absolute object-cover h-full w-full inset-0 rounded-2xl" 
       />
-      <p className="relative z-10 text-[30px] font-extrabold text-[#e7a9ba]">{card.title}</p>
+      <p className="relative z-10 text-[30px] max-md:text-[20px] font-extrabold text-[#454545]">{card.title}</p>
     </div>
   )
 }

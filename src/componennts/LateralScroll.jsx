@@ -9,19 +9,29 @@ const LateralScroll = () => {
   const [width, setWidth] = useState(0)
 
   useEffect(()=>{
-
     if (sliderRef.current) {
-      setWidth(sliderRef.current.offsetWidth);
+
+      const sliderWidth = sliderRef.current.offsetWidth;
+
+      setWidth(sliderWidth);
+      console.log(sliderWidth)
+      console.log('Ancho del slider:', width);
     }
+  },[])
+
+  useEffect(()=>{
+
+    console.log(`useEffect de la animacion ${width}px`)
 
     gsap.to('.flavorTrigger', {
-      x: '-1000px',
+      x: `-${width}px`,
       scrollTrigger: {
         trigger: '.flavorTrigger',
         start: 'top top',
-        end: `bottom bottom`,
+        end: `${width}px`,
         scrub: true,
         pin: true,
+        pinSpacing: false,
         markers: true,
       }
     });
@@ -30,17 +40,20 @@ const LateralScroll = () => {
   },[])
 
   return (
-    <section className="flavorTrigger h-screen w-full border-2 border-blue-500 bg-amber-400">
-      <div ref={sliderRef} className="sliderContainer w-fit flex flex-row border-2 border-amber-300 justify-evenly items-center">
-        <h3 className="text-[50px] font-extrabold uppercase">Flavor <br />Section</h3>
+    <section className="flavorTrigger h-screen w-fit max-md:w-full bg-[#eed7af]">
+      <div ref={sliderRef} className="sliderContainer w-fit max-md:w-full h-full max-md:h-fit flex flex-row max-md:flex-col bg-[#eed7af] justify-evenly items-center">
+        <div className="flex flex-col justify-around items-center h-fit w-fit">
+          <h3 className="text-[50px] max-md:text-[40px] font-extrabold uppercase text-[#e7a9ba] text-center m-0">Fasdasdasd</h3>
+          <h3 className="text-[50px] max-md:text-[40px] font-extrabold uppercase text-[#eed7af] bg-[#e7a9ba] w-fit text-center m-0 p-0 -rotate-6 border-3 border-[#eed7af] -mt-3">Flavor</h3>
+          <h3 className="text-[50px] max-md:text-[40px] font-extrabold uppercase text-[#e7a9ba] text-center m-0 -mt-4">Flavasdasor</h3>
+        </div>
         {
           lateralContent.map((item)=>(
-            <div 
+            <FlavorCard 
               key={item.id}
-              className="border-2 border-red-500 h-[400px] w-[400px] rounded-2xl m-10"
-            >
-
-            </div>
+              item={item}
+              className="border-2 border-red-500 h-100 w-100 rounded-2xl m-10"
+            />
           ))
         }
       </div>

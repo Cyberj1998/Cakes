@@ -19,7 +19,7 @@ const Selector = () => {
         className='absolute top-0 w-full h-[140vh] bg-cover opacity-45 flex-none'
       />
 
-      <h3 className='font-extrabold text-[60px] text-center uppercase z-10 absolute top-0 left-0 m-5 text-[#eed7af] -rotate-10'>
+      <h3 className='font-extrabold text-[60px] max-md:text-[30px] text-center uppercase z-10 absolute top-0 left-0 m-5 max-md:m-0 max-md:mt-2 text-[#eed7af] -rotate-10'>
         Most Populars
       </h3>
 
@@ -33,21 +33,21 @@ const Selector = () => {
         />
         <pointLight intensity={1} position={[-3, 2, -3]} color="#ffc0cb" />
         <Float speed={5} floatIntensity={.5} rotationIntensity={.5}>
-          {/*<PlaneMaterial
+          <PlaneMaterial
             selected={selected}
             selectedCurrent={selectedCurrent}
             setSelectedCurrent={setSelectedCurrent}
-          />*/}
+          />
         </Float>
       </Canvas>
 
       {/*-------------------------selector-------------------*/}
       <div className='w-full h-[40%] flex flex-row'>
         <div className='h-full w-[40%] flex flex-col justify-center items-start p-3'>
-          <h3 className='text-[#eed7af] font-extrabold text-[40px] z-10 uppercase'>
+          <h3 className='text-[#eed7af] font-extrabold text-[40px] max-md:text-[20px] z-10 uppercase'>
             {popularProducts[selected].name}
           </h3>
-          <p className='text-[15px] font-sans font-semibold text-gray-600 z-10'>
+          <p className='text-[15px] max-md:text-[10px] font-sans font-semibold text-gray-600 z-10'>
             {popularProducts[selected].description}
           </p>
         </div>
