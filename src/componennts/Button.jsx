@@ -1,10 +1,10 @@
 import CakeEmoji from '/images/cakeEmoji.svg'
 
-const Button = () => {
+const Button = ({ handler }) => {
   return (
     <button 
       className='cursor-pointer h-12.5 w-50 bg-linear-to-r from-[#a4e8e0] to-[#f4ae9c] rounded-2xl flex flex-row justify-center items-center border border-white z-55'
-      onClick={()=>alert('hola')}
+      onClick={handler ? ()=>handler() : ''}
     >
       <p className='text-white font-bold text-[20px]'>
         Start

@@ -2,7 +2,7 @@ import CakeSlice from '/images/cakeSlice.png'
 import CakeBite from '/images/cakeBite.png'
 import { useLoader } from '@react-three/fiber';
 import { TextureLoader } from 'three';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 
 const CakePlaneMaterial = ({ cakeBite }) => {
@@ -14,7 +14,19 @@ const CakePlaneMaterial = ({ cakeBite }) => {
 
   const arrayTextures = [texture, texture2]
 
+
+  const[height, setHeight]=useState(5.3)
+  const[width, setWidth]=useState(4)
+
+
   useEffect(()=>{
+
+    const windowWidth = window.innerWidth
+
+    if(windowWidth <= 700){
+      setHeight(3)
+      setWidth(2.5)
+    }
 
     const tl = gsap.timeline();
   
@@ -32,7 +44,7 @@ const CakePlaneMaterial = ({ cakeBite }) => {
   return (
     <group>
       <mesh rotation={[0, 0, 0]} ref={cakeBiteRef}>
-        <planeGeometry args={[5.3, 4]} />
+        <planeGeometry args={[height, width]} />
         <meshBasicMaterial map={arrayTextures[cakeBite]} transparent />
       </mesh>
     </group>

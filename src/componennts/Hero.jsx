@@ -91,6 +91,10 @@ const Hero = () => {
 
   },[])
 
+  const handler = () => {
+    alert('hero section')
+  }
+
   return (
     <div className='containerAnimationTrigger w-full h-[200vh] bg-[#e7a9ba] flex flex-col'>
       <img 
@@ -141,7 +145,7 @@ const Hero = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit
             Lorem ipsum dolor sit amet.
           </p>
-          <Button />
+          <Button handler={handler}/>
         </div>
         <div className='w-[50%] max-md:w-full h-full max-md:h-0 flex justify-center items-center'>
           <img

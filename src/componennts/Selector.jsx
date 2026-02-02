@@ -33,11 +33,11 @@ const Selector = () => {
         />
         <pointLight intensity={1} position={[-3, 2, -3]} color="#ffc0cb" />
         <Float speed={5} floatIntensity={.5} rotationIntensity={.5}>
-          <PlaneMaterial
+          {/*<PlaneMaterial
             selected={selected}
             selectedCurrent={selectedCurrent}
             setSelectedCurrent={setSelectedCurrent}
-          />
+          />*/}
         </Float>
       </Canvas>
 

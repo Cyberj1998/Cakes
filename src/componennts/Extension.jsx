@@ -23,13 +23,13 @@ const Extension = () => {
   }
 
   return (
-    <div className='h-[50vh] overflow-hidden relative flex flex-row justify-between items-center w-full bg-[#e7a9ba] z-500'>
+    <div className='h-[50vh] relative flex flex-row justify-between items-center w-full bg-[#e7a9ba] z-500'>
       <img 
-        className="absolute top-0 w-full h-[140vh] bg-cover opacity-45"
+        className="absolute top-0 w-full h-full bg-cover opacity-45"
         src={Background} 
         alt="backgound" 
       />
-      <div className='h-full w-[30%] z-10 flex flex-col items-end'>
+      <div className='h-full w-[30%] z-10 flex flex-col items-end justify-center'>
         <h3 className='text-[30px] font-extrabold text-[#eed7af] ml-2'>Contact</h3>
         <p className='font-sans text-[15px] ml-2'>+56 58457852</p>
         <ul className='flex flex-row w-full justify-end items-center'>
@@ -76,7 +76,7 @@ const Extension = () => {
           </Float>
         </Canvas>
       </div>
-      <div className='h-full w-[30%] z-10 flex flex-col items-start'>
+      <div className='h-full w-[30%] z-10 flex flex-col justify-center items-start'>
         <ul className='flex flex-col'>
           <li className='flex flex-col'>
             <h3 className='text-[30px] font-extrabold text-[#eed7af] mr-2'>shop</h3>

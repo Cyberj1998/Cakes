@@ -13,6 +13,7 @@ import Marquee from './componennts/Marquee';
 import Selector from './componennts/Selector';
 import LateralScroll from './componennts/LateralScroll';
 import Extension from './componennts/Extension';
+import DetailsPage from './componennts/DetailsPage';
 import { gsap } from "gsap";
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 gsap.registerPlugin(ScrollSmoother);
@@ -58,6 +59,13 @@ function App() {
           <>
             <Navbar/>
             <Cart />
+          </>
+          } 
+        />
+        <Route path="/details" element={
+          <>
+            <Navbar/>
+            <DetailsPage />
           </>
           } 
         />

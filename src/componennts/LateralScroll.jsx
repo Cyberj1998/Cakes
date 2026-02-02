@@ -5,44 +5,34 @@ import { useRef, useEffect, useState } from "react"
 
 const LateralScroll = () => {
 
-  const sliderRef = useRef(null);
-  const [width, setWidth] = useState(0)
-
-  useEffect(()=>{
-    if (sliderRef.current) {
-
-      const sliderWidth = sliderRef.current.offsetWidth;
-
-      setWidth(sliderWidth);
-      console.log(sliderWidth)
-      console.log('Ancho del slider:', width);
-    }
-  },[])
+  const sliderRef = useRef();
 
   useEffect(()=>{
 
-    console.log(`useEffect de la animacion ${width}px`)
+    const windowWidth = window.innerWidth
+    const containerWidth = 2000
 
-    gsap.to('.flavorTrigger', {
-      x: `-${width}px`,
+    const scrollAmount = containerWidth - windowWidth
+
+    gsap.to('.sliderContainer', {
+      x: `-${scrollAmount}px`,
       scrollTrigger: {
-        trigger: '.flavorTrigger',
+        trigger: '.sliderContainer',
         start: 'top top',
-        end: `${width}px`,
-        scrub: true,
+        end: '500px',
         pin: true,
         pinSpacing: false,
+        scrub: true,
         markers: true,
       }
     });
 
-
   },[])
 
   return (
-    <section className="flavorTrigger h-screen w-fit max-md:w-full bg-[#eed7af]">
-      <div ref={sliderRef} className="sliderContainer w-fit max-md:w-full h-full max-md:h-fit flex flex-row max-md:flex-col bg-[#eed7af] justify-evenly items-center">
-        <div className="flex flex-col justify-around items-center h-fit w-fit">
+
+      <div ref={sliderRef} className="sliderContainer border-2 border-amber-500 w-500 max-md:w-full h-125 max-md:h-fit flex flex-row max-md:flex-col bg-[#eed7af] justify-evenly items-center">
+        <div className=" border-2 border-purple-600 flex flex-col justify-around items-center h-fit w-100">
           <h3 className="text-[50px] max-md:text-[40px] font-extrabold uppercase text-[#e7a9ba] text-center m-0">Fasdasdasd</h3>
           <h3 className="text-[50px] max-md:text-[40px] font-extrabold uppercase text-[#eed7af] bg-[#e7a9ba] w-fit text-center m-0 p-0 -rotate-6 border-3 border-[#eed7af] -mt-3">Flavor</h3>
           <h3 className="text-[50px] max-md:text-[40px] font-extrabold uppercase text-[#e7a9ba] text-center m-0 -mt-4">Flavasdasor</h3>
@@ -57,9 +47,12 @@ const LateralScroll = () => {
           ))
         }
       </div>
-    </section>
   )
 }
 
+
+
 export default LateralScroll
 
+
+//<div className="flavorTrigger border-2 border-blue-600 h-125 max-md:h-fit w-fit max-md:w-full flex justify-center items-center bg-[#eed7af]">
