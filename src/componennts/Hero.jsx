@@ -104,7 +104,7 @@ const Hero = () => {
       />
       <div className="canvasContainner absolute h-[200vh] w-full pointer-events-none">
         {!responsive ? (
-          <Canvas className="h-full w-full z-50 pointer-events-none bg-black">
+          <Canvas className="h-full w-full z-50 pointer-events-none">
             <ambientLight intensity={0.7} color="#ffffff" />
             <hemisphereLight skyColor="#e0c2d6" groundColor="#523536" intensity={0.5} />
             <directionalLight 

@@ -1,10 +1,13 @@
 import Button from "./Button"
 import { Link } from "react-router-dom"
+import useCartStore from "../store/CartSlice";
 
 const ProductCard = ({ product }) => {
 
-  const handler = () => {
-    alert('productcard')
+  const addToCart = useCartStore(state=>state.addToCart)
+
+  const handler = (product) => {
+    addToCart(product)
   }
 
   return (
@@ -19,7 +22,7 @@ const ProductCard = ({ product }) => {
       <h3 className="font-extrabold text-[20px] text-[#e7a9ba]">{product.name}</h3>
       <h3 className="text-[20px] font-semibold m-2">$: {product.price}</h3>
       <Button 
-        handler={handler} 
+        handler={()=>handler(product)} 
         name={'anadir al carrito'}
       />
     </div>

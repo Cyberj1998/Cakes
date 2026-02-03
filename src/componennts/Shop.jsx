@@ -4,6 +4,7 @@ import Background from '/images/backgroundPhrase.png';
 
 
 const Shop = () => {
+
   return (
     <section className="h-screen w-full bg-[#e7a9ba] flex justify-center items-center">
       <img 

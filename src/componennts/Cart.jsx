@@ -1,12 +1,20 @@
 import Background from '/images/backgroundPhrase.png';
 import productList from './constants/ProductList';
 import CartCard from './CartCard';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { DayPicker } from 'react-day-picker';
 import Button from './Button';
+import useCartStore from '../store/CartSlice';
+
 
 
 const Cart = () => {
+
+  const cart = useCartStore(state=>state.cart)
+
+  useEffect(()=>{
+    console.log(cart)
+  },[])
 
   const [selectedDay, setSelectedDay] = useState(null)
   const[modal, setModal]=useState(false)
@@ -28,7 +36,7 @@ const Cart = () => {
 
 
   return (
-    <section className='h-screen w-full bg-[#e7a9ba] overflow-hidden flex justify-center items-center overflow-hidden'>
+    <section className='h-screen w-full bg-[#e7a9ba] overflow-hidden flex justify-center items-center'>
       
       
       {
@@ -61,7 +69,7 @@ const Cart = () => {
       <div className='rounded-2xl h-[90%] w-[90%] z-10 flex flex-row max-md:flex-col justify-between items-center'>
         <div className='h-full max-md:h-[50%] w-[60%] max-md:w-full flex flex-col justify-start items-center overflow-y-scroll overflow-x-hidden'>
           {
-            productList.map((product)=>(
+            cart.map((product)=>(
               <CartCard 
                 key={product.id}
                 product={product}
