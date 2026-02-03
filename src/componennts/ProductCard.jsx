@@ -18,7 +18,10 @@ const ProductCard = ({ product }) => {
       </Link>
       <h3 className="font-extrabold text-[20px] text-[#e7a9ba]">{product.name}</h3>
       <h3 className="text-[20px] font-semibold m-2">$: {product.price}</h3>
-      <Button handler={handler} />
+      <Button 
+        handler={handler} 
+        name={'anadir al carrito'}
+      />
     </div>
   )
 }

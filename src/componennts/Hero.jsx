@@ -145,7 +145,10 @@ const Hero = () => {
             Lorem ipsum dolor sit amet consectetur adipisicing elit
             Lorem ipsum dolor sit amet.
           </p>
-          <Button handler={handler}/>
+          <Button 
+            handler={handler}
+            name={'Start'}
+          />
         </div>
         <div className='w-[50%] max-md:w-full h-full max-md:h-0 flex justify-center items-center'>
           <img

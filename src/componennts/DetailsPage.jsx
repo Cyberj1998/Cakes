@@ -12,7 +12,7 @@ const DetailsPage = () => {
   }
 
   return (
-    <div className="h-screen w-full flex flex-row justify-center items-center bg-[#e7a9ba]">
+    <section className="h-screen w-full flex flex-row justify-center items-center bg-[#e7a9ba] overflow-hidden">
       <img
         className="wave h-screen max-md:h-[60vh] w-125 max-md:w-80 absolute top-0 left-0 max-md:right-0 rotate-180 max-md:rotate-0 z-10" 
         src={CornerDip}
@@ -37,10 +37,13 @@ const DetailsPage = () => {
             {product.description}
           </p>
           <h3 className="text-[20px] font-semibold m-2">$: {product.price}</h3>
-          <Button handler={handler} />
+          <Button 
+            handler={handler} 
+            name={'Add to Cart'}
+          />
         </div>
       </div>
-    </div>
+    </section>
   )
 }
 
