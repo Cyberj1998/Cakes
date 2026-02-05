@@ -1,10 +1,28 @@
 import Right from '/images/right.png'
 import Left from '/images/left.png'
 import Delete from '/images/trash.png'
+import useCartStore from '../store/CartSlice';
 
 const CartCard = ({ product }) => {
+
+  const increaseQuantity = useCartStore(state=>state.increaseQuantity)
+  const decreaseQuantity = useCartStore(state=>state.decreaseQuantity)
+  const removeFromCart = useCartStore(state=>state.removeFromCart)
+
+  const handleIncreaseQuantity = (productId) => {
+    increaseQuantity(productId)
+  }
+
+  const handleDecreaseQuantity = (productId) => {
+    decreaseQuantity(productId)
+  }
+
+  const handleRemove = (productId) => {
+    removeFromCart(productId)
+  }
+
   return (
-    <div className='border border-white flex shrink-0 w-full h-30 m-2 rounded-2xl flex-row justify-between items-center'>
+    <div className='border border-white flex shrink-0 w-full h-30 m-2 rounded-2xl flex-row justify-between items-center backdrop-blur-[3px]'>
       <div className='h-full w-[20%] flex flex-col justify-center items-center'>
         <img 
           src={product.image} 
@@ -16,25 +34,29 @@ const CartCard = ({ product }) => {
         </h3>
       </div>
       <div className='h-full w-[40%] flex flex-row justify-evenly items-center'>
-        <img 
-          src={Left} 
-          alt="arrow" 
-          className='h-20 max-md:h-10 w-20 max-md:w-10 cursor-pointer'
-        />
+        <button onClick={()=>handleDecreaseQuantity(product.id)}>
+          <img 
+            src={Left} 
+            alt="arrow" 
+            className='h-20 max-md:h-10 w-20 max-md:w-10 cursor-pointer'
+          />
+        </button>
         <h3 className='m-2 text-[30px] max-md:text-[15px]'>
-          100
+          {product.quantity}
         </h3>
-        <img 
-          src={Right} 
-          alt="arrow" 
-          className='h-20 max-md:h-10 w-20 max-md:w-10 cursor-pointer'
-        />
+        <button onClick={()=>handleIncreaseQuantity(product.id)}>
+          <img 
+            src={Right} 
+            alt="arrow" 
+            className='h-20 max-md:h-10 w-20 max-md:w-10 cursor-pointer'
+          />
+        </button>
       </div>
-      <div className='h-full w-[30%] flex flex-row max-md:flex-col justify-evenly items-center'>
-        <h3 className='m-2 text-[30px] max-md:text-[20px]'>
-          $: {product.price}
+      <div className='h-full w-[30%] flex flex-col justify-evenly items-center'>
+        <h3 className='m-2 text-[20px] max-md:text-[20px]'>
+          por unidad $: {product.price}
         </h3>
-        <button onClick={()=>alert('hola cart card')}>
+        <button onClick={()=>handleRemove(product.id)}>
           <img 
             src={Delete}
             alt="delete" 

@@ -5,7 +5,9 @@ import useCartStore from "../store/CartSlice"
 
 const Navbar = () => {
 
-  const cartQuantity = useCartStore(state=>state.cart)
+  const getTotalQuantity = useCartStore(state=>state.getTotalQuantity)
+
+  const totalQuantity = getTotalQuantity()
 
   return (
     <section className="fixed bg-transparent w-full h-12.5 z-60 flex flex-row justify-between items-center">
@@ -35,7 +37,7 @@ const Navbar = () => {
             alt="icon" 
             className="h-5 w-5"
           />
-          <p className="text-[20px] font-semibold text-[#2f2f2f]">{cartQuantity.length}</p>
+          <p className="text-[20px] font-semibold text-[#2f2f2f]">{totalQuantity}</p>
         </Link>
       </div>
     </section>

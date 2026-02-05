@@ -1,5 +1,4 @@
 import Background from '/images/backgroundPhrase.png';
-import productList from './constants/ProductList';
 import CartCard from './CartCard';
 import { useState, useEffect } from 'react';
 import { DayPicker } from 'react-day-picker';
@@ -7,10 +6,13 @@ import Button from './Button';
 import useCartStore from '../store/CartSlice';
 
 
-
 const Cart = () => {
 
   const cart = useCartStore(state=>state.cart)
+  const getTotalPrice = useCartStore(state=>state.getTotalPrice)
+
+  const totalPrice = getTotalPrice()
+
 
   useEffect(()=>{
     console.log(cart)
@@ -37,8 +39,6 @@ const Cart = () => {
 
   return (
     <section className='h-screen w-full bg-[#e7a9ba] overflow-hidden flex justify-center items-center'>
-      
-      
       {
         modal ? (
           <div className='modal z-50 bg-[#eed7af] h-[90%] w-[35%] absolute rounded-2xl mt-3 flex flex-col justify-evenly items-center'>
@@ -78,6 +78,9 @@ const Cart = () => {
           }
         </div>
         <div className='border-2 border-purple-600 h-full max-md:h-[50%] w-[40%] max-md:w-full flex flex-col justify-evenly items-center'>
+          <p className='z-50 font-semibold text-black text-[20px]'>
+            Total a pagar: {totalPrice}
+          </p>
           <DayPicker
             className='border-2 border-amber-400'
             mode="single"

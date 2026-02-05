@@ -21,13 +21,11 @@ const useCartStore = create((set, get)=>({
         }
     },
 
-
     //--------------------------remove from cart
 
     removeFromCart: (productId) => {
         set({cart: get().cart.filter(item=>item.id !== productId)})
     },
-
 
     //------------------------increase quantity
 

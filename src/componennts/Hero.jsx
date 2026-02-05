@@ -166,7 +166,7 @@ const Hero = () => {
             <img 
               src={CakeBite}
               alt="cake" 
-              className="h-50 w-100"
+              className="h-50 w-100 max-md:opacity-100 opacity-0"
             />
           </div>
         </div>
