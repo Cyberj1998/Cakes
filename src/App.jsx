@@ -18,6 +18,7 @@ import { gsap } from "gsap";
 import { ScrollSmoother } from 'gsap/ScrollSmoother';
 gsap.registerPlugin(ScrollSmoother);
 import { useEffect } from 'react';
+import AdminDash from './componennts/AdminDash';
 
 function App() {
 
@@ -66,6 +67,12 @@ function App() {
           <>
             <Navbar/>
             <DetailsPage />
+          </>
+          } 
+        />
+        <Route path="/admin" element={
+          <>
+            <AdminDash />
           </>
           } 
         />
