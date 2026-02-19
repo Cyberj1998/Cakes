@@ -57,7 +57,7 @@ const Hero = () => {
         start: 'top top',   
         end: 'center center', 
         scrub: true,
-        markers: true
+        //markers: true
       }
     });
 
@@ -85,7 +85,6 @@ const Hero = () => {
         start: 'top top',
         end: 'bottom bottom',
         scrub: true,
-        markers: true,
       }
     });
 
@@ -140,10 +139,10 @@ const Hero = () => {
           <p 
             className="mt-5 w-fit text-[#6e6e6e] text-center p-2 font-sans font-semibold z-10"
           >
-            Lorem ipsum dolor sit amet consectetur adipisicing elit
-            Lorem ipsum dolor sit amet consectetur adipisicing elit
-            Lorem ipsum dolor sit amet consectetur adipisicing elit
-            Lorem ipsum dolor sit amet.
+            Dive in our delightful cakes, crafted with love and passion.  
+            Each bite promises a sweet experience, perfect for any occasion.  
+            From classic flavors to unique creations, we have it all.  
+            Treat yourself to happiness, one slice at a time.
           </p>
           <Button 
             handler={handler}
