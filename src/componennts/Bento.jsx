@@ -6,7 +6,7 @@ import BentoCard from './BentoCard'
 const Bento = () => {
 
   return (
-    <div className='h-[200vh] w-full bg-[#eed7af] flex flex-col justify-between items-center border-2 border-blue-700'>
+    <div className='h-[200vh] w-full bg-[#eed7af] flex flex-col justify-between items-center'>
       <img 
         src={Dip} 
         alt="dip" 

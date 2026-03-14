@@ -8,7 +8,7 @@ const Shop = () => {
   return (
     <section className="h-screen w-full bg-[#e7a9ba] flex justify-center items-center">
       <img 
-        className="absolute top-0 w-full max-md:w-125 h-[140vh] max-md:h-screen bg-cover opacity-45"
+        className="absolute top-0 w-fu  ll max-md:w-125 h-[140vh] max-md:h-screen bg-cover opacity-45"
         src={Background} 
         alt="backgound" 
       />

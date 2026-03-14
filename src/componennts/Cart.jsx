@@ -32,9 +32,21 @@ const Cart = () => {
     }
   }
 
-  const handler = () => {
-    alert('cart')
-  }
+
+  const handleShareToWhatsApp = () => {
+    
+    const phoneNumber = '50219524'; 
+    
+    const messageItems = cart.map(item => {
+        return `${item.name}, Precio: ${item.price}, Cantidad: ${item.quantity}`;
+    }).join('\n');
+
+    const message = `${messageItems}\nTotal a pagar: ${totalPrice},  Fecha: ${selectedDay}, Direccion: ${adress}`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, '_blank');
+  };
 
 
   return (
@@ -104,7 +116,7 @@ const Cart = () => {
           </button>
 
           <Button
-            handler={handler} 
+            handler={()=>handleShareToWhatsApp()} 
             name={'Comprar'}
           />
         </div>

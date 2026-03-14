@@ -54,8 +54,9 @@ const Hero = () => {
       yPercent: 50,
       stagger: 0.06,
       scrollTrigger: {
+        trigger: '.containerAnimationTrigger',
         start: 'top top',   
-        end: 'center center', 
+        end: 'bottom bottom', 
         scrub: true,
         //markers: true
       }
@@ -112,11 +113,11 @@ const Hero = () => {
             />
             <pointLight intensity={1} position={[-3, 2, -3]} color="#ffc0cb" />
             <Float speed={5} floatIntensity={.5} rotationIntensity={.5}>
-              <CakeModel 
+              {/*<CakeModel 
                 position={[2, 2, 0]}
                 rotation={[.9, 2, -.3]} 
                 scale={.8}  
-              />
+              />*/}
             </Float>
         </Canvas>
         ) : ''}
@@ -172,7 +173,7 @@ const Hero = () => {
         <div className="texthalf h-screen max-md:h-[50%] w-[50%] max-md:w-full flex flex-col justify-start items-center">
           <div className="textConntainer">
             <h3 className="SecondaryText text-[#eed7af] text-[60px] max-md:text-[35px] font-extrabold text-left max-md:text-center leading-tight">
-              make with the best <br /> ingredients
+              made with the best <br /> ingredients
             </h3>
             <p className="SecondaryP text-[#6e6e6e] text-left max-md:text-center font-sans font-semibold w-112.5 max-md:w-80">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.

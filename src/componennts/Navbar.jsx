@@ -2,12 +2,17 @@ import { Link } from "react-router-dom"
 import Logo from '/images/logo.png'
 import CartIcon from '/images/cart.png'
 import useCartStore from "../store/CartSlice"
+import { useEffect, useState } from "react"
 
 const Navbar = () => {
 
   const getTotalQuantity = useCartStore(state=>state.getTotalQuantity)
+  const cart = useCartStore(state=>state.cart)
+  const[totalQuantity,setTotalQuantity]=useState(0)
 
-  const totalQuantity = getTotalQuantity()
+  useEffect(()=>{
+    setTotalQuantity(getTotalQuantity())
+  },[cart])
 
   return (
     <section className="fixed bg-transparent w-full h-12.5 z-60 flex flex-row justify-between items-center">
