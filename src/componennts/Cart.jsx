@@ -60,7 +60,7 @@ const Cart = () => {
 
   return (
       <section className='h-screen w-full bg-[#e7a9ba] overflow-hidden flex justify-center items-center'>
-        {/* Modale para la dirección */}
+
         {modal && (
           <div className='modal z-50 bg-[#eed7af] h-[90%] max-md:h-[80%] w-[35%] max-md:w-[90%] absolute rounded-2xl mt-3 flex flex-col justify-evenly items-center'>
             <textarea
@@ -80,12 +80,11 @@ const Cart = () => {
           </div>
         )}
 
-        {/* Modale para el calendario */}
         {calendarModalVisible && (
           <div className='fixed inset-0 z-50 flex items-center justify-center bg-opacity-50' onClick={closeCalendarModal}>
             <div className='bg-white p-6 rounded-lg shadow-lg max-w-sm w-full mx-auto relative' onClick={e => e.stopPropagation()}>
               <button className='absolute top-2 right-2 text-gray-500 hover:text-gray-700' onClick={closeCalendarModal}>
-                &times; {/* Símbolo de cierre */}
+                &times; 
               </button>
               <DayPicker
                 className='w-full border-2 border-blue-500 rounded-lg shadow-md'
@@ -93,7 +92,7 @@ const Cart = () => {
                 selected={selectedDay}
                 onSelect={(day) => {
                   setSelectedDay(day);
-                  closeCalendarModal(); // Cierra el modale después de la selección
+                  closeCalendarModal(); 
                 }}
                 month={today}
                 fixedWeeks
@@ -129,7 +128,7 @@ const Cart = () => {
               Total a pagar: {totalPrice}
             </p>
 
-            {/* Muestra el día seleccionado si existe */}
+
             {selectedDay && (
               <p className='mt-4 text-center'>
                 Día Seleccionado: {selectedDay.toLocaleDateString()}
@@ -145,7 +144,7 @@ const Cart = () => {
               </p>
             </button>
 
-            {/* Botón para abrir el modale del calendario */}
+
             <button
               onClick={openCalendarModal}
               className='p-3 rounded-2xl bg-[#eed7af] cursor-pointer m-1'
