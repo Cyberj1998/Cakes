@@ -22,6 +22,7 @@ const Cart = () => {
   const[modal, setModal]=useState(false)
   const[adress, setAdress]=useState('')
   const[input, setInput]=useState('')
+  const [calendarModalVisible, setCalendarModalVisible] = useState(false)
 
   const today = new Date()
 
@@ -31,6 +32,14 @@ const Cart = () => {
       setAdress(input)
     }
   }
+
+  const openCalendarModal = () => {
+    setCalendarModalVisible(true);
+  };
+
+  const closeCalendarModal = () => {
+    setCalendarModalVisible(false);
+  };
 
 
   const handleShareToWhatsApp = () => {
@@ -50,78 +59,109 @@ const Cart = () => {
 
 
   return (
-    <section className='h-screen w-full bg-[#e7a9ba] overflow-hidden flex justify-center items-center'>
-      {
-        modal ? (
+      <section className='h-screen w-full bg-[#e7a9ba] overflow-hidden flex justify-center items-center'>
+        {/* Modale para la dirección */}
+        {modal && (
           <div className='modal z-50 bg-[#eed7af] h-[90%] max-md:h-[80%] w-[35%] max-md:w-[90%] absolute rounded-2xl mt-3 flex flex-col justify-evenly items-center'>
-            <textarea 
+            <textarea
               placeholder='Escriba su direccion aqui'
               className='border border-black h-[40%] w-[90%]'
               value={input}
               onChange={e => setInput(e.target.value)}
             />
             <button
-              onClick={()=>handlerModal()}
-              className='p-3 rounded-2xl cursorpointer bg-[#e7a9ba] cursor-pointer'
+              onClick={() => handlerModal()}
+              className='p-3 rounded-2xl bg-[#e7a9ba] cursor-pointer'
             >
               <p className='text-[20px] max-md:text-[15px] font-semibold'>
                 Fijar Direccion
               </p>
             </button>
           </div>
-        ) : ''
-      }
+        )}
 
-
-      <img 
-        className="absolute top-0 w-full max-md:w-125 h-[140vh] max-md:h-screen bg-cover opacity-45"
-        src={Background} 
-        alt="backgound" 
-      />
-      <div className='rounded-2xl h-[90%] w-[90%] z-10 flex flex-row max-md:flex-col justify-between items-center'>
-        <div className='h-full max-md:h-[50%] w-[60%] max-md:w-full flex flex-col justify-start items-center overflow-y-scroll overflow-x-hidden'>
-          {
-            cart.map((product)=>(
-              <CartCard 
-                key={product.id}
-                product={product}
+        {/* Modale para el calendario */}
+        {calendarModalVisible && (
+          <div className='fixed inset-0 z-50 flex items-center justify-center bg-opacity-50' onClick={closeCalendarModal}>
+            <div className='bg-white p-6 rounded-lg shadow-lg max-w-sm w-full mx-auto relative' onClick={e => e.stopPropagation()}>
+              <button className='absolute top-2 right-2 text-gray-500 hover:text-gray-700' onClick={closeCalendarModal}>
+                &times; {/* Símbolo de cierre */}
+              </button>
+              <DayPicker
+                className='w-full border-2 border-blue-500 rounded-lg shadow-md'
+                mode="single"
+                selected={selectedDay}
+                onSelect={(day) => {
+                  setSelectedDay(day);
+                  closeCalendarModal(); // Cierra el modale después de la selección
+                }}
+                month={today}
+                fixedWeeks
               />
-            ))
-          }
-        </div>
-        <div className='h-full max-md:h-[50%] w-[40%] max-md:w-full flex flex-col justify-evenly items-center'>
-          <p className='z-50 font-semibold text-black text-[20px]'>
-            Total a pagar: {totalPrice}
-          </p>
-          <DayPicker
-            className='max-md:h-60 max-md:w-75 border-2 border-blue-500'
-            mode="single"
-            selected={selectedDay}
-            onSelect={setSelectedDay}
-            month={today} 
-            fixedWeeks 
-          />
-          {selectedDay && (
-            <p className='mt-4 text-center'>
-              Dia Seleccionado: {selectedDay.toLocaleDateString()}
-            </p>
-          )}
-          <button
-            onClick={()=>setModal(prev => !prev)} 
-            className='p-3 rounded-2xl cursorpointer bg-[#eed7af] cursor-pointer m-1'
-          >
-            <p className='text-[20px] max-md:text-[15px] font-semibold'>
-              Agregar Direccion
-            </p>
-          </button>
+              {selectedDay && (
+                <p className='mt-4 text-center'>
+                  Día Seleccionado: {selectedDay.toLocaleDateString()}
+                </p>
+              )}
+            </div>
+          </div>
+        )}
 
-          <Button
-            handler={()=>handleShareToWhatsApp()} 
-            name={'Comprar'}
-          />
+        <img
+          className="absolute top-0 w-full max-md:w-125 h-[140vh] max-md:h-screen bg-cover opacity-45"
+          src={Background}
+          alt="backgound"
+        />
+
+        <div className='rounded-2xl h-[90%] w-[90%] z-10 flex flex-row max-md:flex-col justify-between items-center'>
+          <div className='h-full max-md:h-[50%] w-[60%] max-md:w-full flex flex-col justify-start items-center overflow-y-scroll overflow-x-hidden'>
+            {
+              cart.map((product)=>(
+                <CartCard
+                  key={product.id}
+                  product={product}
+                />
+              ))
+            }
+          </div>
+          <div className='h-full max-md:h-[50%] w-[40%] max-md:w-full flex flex-col justify-evenly items-center'>
+            <p className='z-50 font-semibold text-black text-[20px]'>
+              Total a pagar: {totalPrice}
+            </p>
+
+            {/* Muestra el día seleccionado si existe */}
+            {selectedDay && (
+              <p className='mt-4 text-center'>
+                Día Seleccionado: {selectedDay.toLocaleDateString()}
+              </p>
+            )}
+
+            <button
+              onClick={() => setModal(prev => !prev)}
+              className='p-3 rounded-2xl bg-[#eed7af] cursor-pointer m-1'
+            >
+              <p className='text-[20px] max-md:text-[15px] font-semibold'>
+                Agregar Direccion
+              </p>
+            </button>
+
+            {/* Botón para abrir el modale del calendario */}
+            <button
+              onClick={openCalendarModal}
+              className='p-3 rounded-2xl bg-[#eed7af] cursor-pointer m-1'
+            >
+              <p className='text-[20px] max-md:text-[15px] font-semibold'>
+                Seleccionar Fecha
+              </p>
+            </button>
+
+            <Button
+              handler={() => handleShareToWhatsApp()}
+              name={'Comprar'}
+            />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
   )
 }
 
