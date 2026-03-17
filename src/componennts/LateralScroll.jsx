@@ -2,7 +2,6 @@ import FlavorCard from "./FlavorCard"
 import lateralContent from "./constants/LateralScrollContent"
 import { gsap } from "gsap"
 import { useRef, useEffect } from "react"
-import Extension from "./Extension"
 
 const LateralScroll = () => {
 

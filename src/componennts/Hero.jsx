@@ -113,11 +113,11 @@ const Hero = () => {
             />
             <pointLight intensity={1} position={[-3, 2, -3]} color="#ffc0cb" />
             <Float speed={5} floatIntensity={.5} rotationIntensity={.5}>
-              {/*<CakeModel 
+              <CakeModel 
                 position={[2, 2, 0]}
                 rotation={[.9, 2, -.3]} 
                 scale={.8}  
-              />*/}
+              />
             </Float>
         </Canvas>
         ) : ''}

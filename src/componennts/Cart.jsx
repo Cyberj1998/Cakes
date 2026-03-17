@@ -53,7 +53,7 @@ const Cart = () => {
     <section className='h-screen w-full bg-[#e7a9ba] overflow-hidden flex justify-center items-center'>
       {
         modal ? (
-          <div className='modal z-50 bg-[#eed7af] h-[90%] w-[35%] absolute rounded-2xl mt-3 flex flex-col justify-evenly items-center'>
+          <div className='modal z-50 bg-[#eed7af] h-[90%] max-md:h-[80%] w-[35%] max-md:w-[90%] absolute rounded-2xl mt-3 flex flex-col justify-evenly items-center'>
             <textarea 
               placeholder='Escriba su direccion aqui'
               className='border border-black h-[40%] w-[90%]'
@@ -89,12 +89,12 @@ const Cart = () => {
             ))
           }
         </div>
-        <div className='border-2 border-purple-600 h-full max-md:h-[50%] w-[40%] max-md:w-full flex flex-col justify-evenly items-center'>
+        <div className='h-full max-md:h-[50%] w-[40%] max-md:w-full flex flex-col justify-evenly items-center'>
           <p className='z-50 font-semibold text-black text-[20px]'>
             Total a pagar: {totalPrice}
           </p>
           <DayPicker
-            className='border-2 border-amber-400'
+            className='max-md:h-60 max-md:w-75 border-2 border-blue-500'
             mode="single"
             selected={selectedDay}
             onSelect={setSelectedDay}
@@ -108,7 +108,7 @@ const Cart = () => {
           )}
           <button
             onClick={()=>setModal(prev => !prev)} 
-            className='p-3 rounded-2xl cursorpointer bg-[#eed7af] cursor-pointer'
+            className='p-3 rounded-2xl cursorpointer bg-[#eed7af] cursor-pointer m-1'
           >
             <p className='text-[20px] max-md:text-[15px] font-semibold'>
               Agregar Direccion

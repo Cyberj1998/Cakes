@@ -3,6 +3,8 @@ import Left from '/images/left.png'
 import Delete from '/images/trash.png'
 import useCartStore from '../store/CartSlice';
 
+
+
 const CartCard = ({ product }) => {
 
   const increaseQuantity = useCartStore(state=>state.increaseQuantity)
@@ -54,7 +56,7 @@ const CartCard = ({ product }) => {
       </div>
       <div className='h-full w-[30%] flex flex-col justify-evenly items-center'>
         <h3 className='m-2 text-[20px] max-md:text-[20px]'>
-          por unidad $: {product.price}
+          $: {product.price}
         </h3>
         <button onClick={()=>handleRemove(product.id)}>
           <img 

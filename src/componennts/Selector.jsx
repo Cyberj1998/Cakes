@@ -42,8 +42,8 @@ const Selector = () => {
       </Canvas>
 
       {/*-------------------------selector-------------------*/}
-      <div className='w-full h-[40%] flex flex-row'>
-        <div className='h-full w-[40%] flex flex-col justify-center items-start p-3'>
+      <div className='w-full h-[40%] flex flex-row max-md:flex-col items-center'>
+        <div className='h-full w-[40%] max-md:w-full flex flex-col justify-center items-start p-3'>
           <h3 className='text-[#eed7af] font-extrabold text-[40px] max-md:text-[20px] z-10 uppercase'>
             {popularProducts[selected].name}
           </h3>
@@ -51,7 +51,7 @@ const Selector = () => {
             {popularProducts[selected].description}
           </p>
         </div>
-        <div className='h-full w-[60%] flex flex-row justify-evenly items-center bg-[#eed7af] rounded-2xl z-10'>
+        <div className='h-full max-md:h-40 w-[60%] max-md:w-full flex flex-row justify-evenly items-center bg-[#eed7af] rounded-2xl z-10'>
           {
             popularProducts.map((product)=>(
               <SelectorCard 
@@ -68,20 +68,3 @@ const Selector = () => {
 }
 
 export default Selector
-
-/* 
-
-<mesh ref={cakeRef} >
-  <planeGeometry args={[2, 1.5]} />
-  <meshBasicMaterial map={texture} transparent />
-</mesh>
-
-
-*/
-
-
-/*
-
- <Float speed={5} floatIntensity={.5} rotationIntensity={.5}>
-
-*/
