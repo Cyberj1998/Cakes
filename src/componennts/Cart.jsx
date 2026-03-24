@@ -60,7 +60,6 @@ const Cart = () => {
 
   return (
       <section className='h-screen w-full bg-[#e7a9ba] overflow-hidden flex justify-center items-center'>
-
         {modal && (
           <div className='modal z-50 bg-[#eed7af] h-[90%] max-md:h-[80%] w-[35%] max-md:w-[90%] absolute rounded-2xl mt-3 flex flex-col justify-evenly items-center'>
             <textarea
@@ -79,7 +78,6 @@ const Cart = () => {
             </button>
           </div>
         )}
-
         {calendarModalVisible && (
           <div className='fixed inset-0 z-50 flex items-center justify-center bg-opacity-50' onClick={closeCalendarModal}>
             <div className='bg-white p-6 rounded-lg shadow-lg max-w-sm w-full mx-auto relative' onClick={e => e.stopPropagation()}>
